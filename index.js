@@ -68,7 +68,7 @@ Rx.Observable.fromPromise(Config.openDefault()).flatMap(function(config) {
         console.log('team:');
         console.log(team);
       }
-      return Rx.Observable.fromNodeCallback(github.orgs.getTeamMembers)({id: team.id});
+      return Rx.Observable.fromNodeCallback(github.orgs.getTeamMembers)({id: team.id, per_page: 100});
     }).flatMap(function(teamMembers) {
       if (verbose) {
         console.log('teamMembers:');
